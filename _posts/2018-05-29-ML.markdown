@@ -9,7 +9,7 @@ author: Paul Hanakata
 ##### Machine learning for designing stretchable graphene kirigami
 <table class="image" align="right">
 <caption align="bottom">{{ "<i> Visualization of graphene membrane.</i>" }}</caption>
-<tr><td><img src="/img/graphene_sheet.png" alt="Visualization of graphene membrane" description="Drawing" style="width: 300px; max-width:80%;"/></td></tr>
+<tr><td><img src="{{ site.baseurl }}/img/graphene_sheet.png" alt="Visualization of graphene membrane" description="Drawing" style="width: 300px; max-width:80%;"/></td></tr>
 </table>
 Recently, there has been great interests in using patterned cuts, often called kirigami cuts, to design stretchable materials. 
 Introducing cuts allow thin materials (membranes) to extend reaching a fracture strain beyond its pristine value. This topology optimization problem is highly complex and an analytical approach is only available for simple cases (e.g few cuts). Using standard computational approaches (e.g. molecular dynamics) to simulate all candidate designs is not practical, as the number of possible ways to pattern the 2D materials grows exponentially with system size. To solve this problem, I use a **machine learning (ML)** approach, where data are used to provide physical insights and an effective model to describe a physical system.
@@ -24,7 +24,7 @@ In the series expansion approach, the 2D cut patterns are flattened into a 1D-ar
 lost. Series expansion can be used to "recover" the information of interactions between neighbors, but this approach becomes inefficient when the number of cells becomes large. This series expansion approach is computationally inefficient as we expect the interactions should be local. In principle, one could do series expansions to the nearest neighbors only; however, details of the potentials are not always known. For these reasons, the convolutional neural networks (CNN) is a more appropriate and scalable model as this deep learning is superior in recognizing edges in 2D motifs as well as performing down-sampling, which is very suitable for our problem. In the CNN, the 2D image (input) is convolved by a set of learnable filters and this allows the model to learn 2D motifs. An image passing through these filters then activates neurons which then classify (or rank) the cutting patterns to good or bad designs. This approach is more efficient than the series expansion approach as the CNN model is built based on learned 2D local motifs.
 <table class="image" align="right">
 <caption align="bottom">{{ "<i> Peformances of different ML models </i>" }}</caption>
-<tr><td><img src="/img/different_arch.png" alt="Peformances of different ML models" description="Drawing" style="width: 300px; max-width:100%;"/></td></tr>
+<tr><td><img src="{{ site.baseurl }}/img/different_arch.png" alt="Peformances of different ML models" description="Drawing" style="width: 300px; max-width:100%;"/></td></tr>
 </table>
 
 We benchmark accuracy score of linear model, neural networks (NN) and convolutional neural netwroks (CNN). We found that the CNN with deep architecture performs the best. 
@@ -42,7 +42,7 @@ Search algorithm:
 The CNN search algorithm is able to search for the optimal solutions with only 1000 training data in a large design space of approximately 4,000,000. The superior designs for each generation are shown bellow. 
 <table class="image" align="center">
 <caption align="bottom">{{ "<i> Search results </i>" }}</caption>
-<tr><td><img src="/img/search_results.png" alt="Search results" description="Drawing" style="width: 500px; max-width:100%;"/></td></tr>
+<tr><td><img src="{{ site.baseurl }}/img/search_results.png" alt="Search results" description="Drawing" style="width: 500px; max-width:100%;"/></td></tr>
 </table>
 
 
