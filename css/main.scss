@@ -207,6 +207,56 @@ nav a:hover {
 
 .btn:hover { background: #0a5570; text-decoration: none; }
 
+/* ── Recent section ────────────────────────────────── */
+.recent-section {
+  padding: 48px 0 0;
+}
+
+.post-card--featured {
+  border-color: #0d6e8a;
+  box-shadow: 0 2px 12px rgba(13,110,138,0.12);
+}
+
+.post-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0d3b52;
+  margin-bottom: 6px;
+}
+
+.post-card-badge {
+  display: inline-block;
+  background: #0d6e8a;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.post-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.tag {
+  display: inline-block;
+  background: #edf4f7;
+  color: #0d6e8a;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
 /* ── Post page ─────────────────────────────────────── */
 .post-hero {
   min-height: 220px;
