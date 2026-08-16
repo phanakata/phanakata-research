@@ -1,48 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title and page.title != "" %}{{ page.title }} — {% endif %}Paul Hanakata</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}" />
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$','$'],['\\(','\\)']],
+        displayMath: [['$$','$$'],['\\[','\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
 
-  {% include head.html %}
+<header>
+  <div class="container nav-container">
+    <a class="site-title" href="{{ '/' | prepend: site.baseurl }}">Paul Hanakata</a>
+    <nav>
+      <a href="{{ site.baseurl }}/CV/">CV</a>
+      <a href="{{ site.baseurl }}/Publications/">Publications</a>
+      <a href="{{ site.baseurl }}/Codes/">Codes</a>
+      <a href="{{ site.baseurl }}/Courses/">Courses</a>
+    </nav>
+  </div>
+</header>
 
-  <body>
+<main>
+  {{ content }}
+</main>
 
-    <!-- Start Layout -->
-    {% if site.header_type == 'drawer' %}
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
-      {% include search_result.html %}
-      {% include header_fixed.html %}
-    {% else %}
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      {% include search_result.html %}
-      {% include header.html %}
-    {% endif %}
+<footer>
+  <div class="container">
+    <span>Paul Hanakata &middot; Physics Department, Harvard University</span>
+    <span class="footer-sep">&middot;</span>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_id }}" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="https://www.researchgate.net/profile/{{ site.researchgate_id }}" target="_blank" rel="noopener">ResearchGate</a>
+  </div>
+</footer>
 
-    {{ content }}
-    {% include footer.html %}
-
-    </div>
-    <!-- /End Layout -->
-
-    <!-- Material Design Lite js Library -->
-    <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    {% if site.pagination_type == 'ops' %}
-    <script rel="javascript" type="text/javascript" src="{{ "/js/site.js" | prepend: site.baseurl }}"></script>
-    {% endif %}
-    <script rel="javascript" type="text/javascript" src="{{ "/js/search.js" | prepend: site.baseurl }}"></script>
-    <script rel="javascript" type="text/javascript">
-      superSearch({
-        searchFile: '/feed.xml',
-        searchSelector: '#js-search', // CSS Selector for search container element.
-        inputSelector: '#js-search__input', // CSS selector for <input>
-        resultsSelector: '#js-search__results' // CSS selector for results container
-      });
-    </script>
-    <!-- Math jax and numbering-->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
-    <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> 
-    {% include analytics.html %}  
-      
-  </body>
-
+</body>
 </html>
